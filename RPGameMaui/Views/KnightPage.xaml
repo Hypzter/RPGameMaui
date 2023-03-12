@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RPGameMaui.Views.KnightPage"
+             Title="KnightPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="2*" />
+            <RowDefinition />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <BoxView
+                    Color="Green"
+                    Grid.RowSpan="4"/>
+        <Image 
+                    Source="knightidle.png"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Grid.RowSpan="4"/>
+        <BoxView 
+                    Grid.Column="1"
+                    Color="Blue" />
+        <Label 
+                    Grid.Column="1"
+                    Text="{Binding Knight.Level, StringFormat='Level: {0}'}"                   
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+        <BoxView 
+                    Grid.Column="1"
+                    Color="Pink"
+                    Grid.Row="1"/>
+        <Label 
+                    Grid.Column="1"
+                    Text="{Binding Knight.Health, StringFormat='Health: {0}'}"                   
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Grid.Row="1"/>
+        <BoxView 
+                    Grid.Column="1"
+                    Color="Yellow"
+                    Grid.Row="2"/>
+        <Label 
+                    Grid.Column="1"
+                    Text="{Binding Knight.PhysicalAttack, StringFormat='Physical Attack: {0}'}"
+                    TextColor="Black"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Grid.Row="2"/>
+        <BoxView 
+                    Grid.Column="1"
+                    Color="Orange"
+                    Grid.Row="3"/>
+        <Label 
+                    Grid.Column="1"
+                    Text="{Binding Knight.MagicalAttack, StringFormat='Magical Attack: {0}'}"
+                    TextColor="Black"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Grid.Row="3"/>
+        <BoxView 
+                    Grid.Row="4"
+                    Color="Teal" />
+        <Entry
+                    x:Name="NameInput"
+                    Placeholder="Enter your name here"
+                    PlaceholderColor="White"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Grid.Row="4"
+                    TextColor="White"/>
+        <BoxView 
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Color="Purple" />
+        <Button 
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Text="To Battle!"
+                    Clicked="OnToBattleClicked"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+        <BoxView 
+                    Grid.Row="5"
+                    Grid.ColumnSpan="2"
+                    Color="Red" />
+        <Label 
+                    Grid.Row="5"
+                    Grid.ColumnSpan="2"
+                    Text="Row 2, Columns 0 and 1"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+    </Grid>
+</ContentPage>

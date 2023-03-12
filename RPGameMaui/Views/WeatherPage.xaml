@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RPGameMaui.Views.WeatherPage"
+             xmlns:viewmodel="clr-namespace:RPGameMaui.ViewModels"
+             x:DataType="viewmodel:WeatherPageViewModel"
+             Title="WeatherPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="2*" />
+            <RowDefinition />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Label
+            Text="Your local weather:"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Grid.Row="1"
+            Grid.ColumnSpan="2" />
+
+        <Label
+            Text="{Binding Feels_Like, StringFormat='Feel like {0} degrees'}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            
+            Grid.ColumnSpan="2"
+            Grid.Row="3"/>
+
+        <Label
+            Text="{Binding Temp, StringFormat='Temperature is {0} degrees'}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Grid.ColumnSpan="2"
+            Grid.Row="2"/>
+
+        <Label
+            Text="{Binding Humidity, StringFormat='Relative humidity is {0}%'}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Grid.ColumnSpan="2"
+            Grid.Row="4"/>
+
+        <Label
+            Text="{Binding Wind_Speed, StringFormat='Windspeed is {0} m/s'}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Grid.ColumnSpan="2"
+            Grid.Row="5"/>
+
+
+
+    </Grid>
+
+</ContentPage>

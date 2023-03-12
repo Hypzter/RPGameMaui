@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RPGameMaui.Views.ShowEnemies"
+             Title="ShowEnemies">
+    <ListView
+            ItemsSource="{Binding Monsters}"
+            ItemSelected="OnListViewMonsterSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid
+                            Padding="10"
+                            RowDefinitions="*, *, *, *, Auto, *"
+                            ColumnDefinitions="200, 200, 100"
+                            ColumnSpacing="20" >
+                        <Image
+                                Grid.RowSpan="6"
+                                Source="{Binding Image}"
+                                Aspect="Fill"
+                                HeightRequest="200" />
+                        <Label
+                                Grid.Column="1"
+                                Text="{Binding Name}"
+                                FontSize="32" />
+                        <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Text="{Binding Level, StringFormat='Level {0}'}"
+                                FontSize="15" />
+                        <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Text="{Binding Health, StringFormat='HP: {0}'}"
+                                FontSize="15" />
+                        <Label
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                Text="{Binding PhysicalAttack, StringFormat='Physical attack: {0}'}"
+                                FontSize="15" />
+                        <Label
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                Text="{Binding MagicalAttack, StringFormat='Magical attack: {0}'}"
+                                FontSize="15" />
+                        <Label
+                                Grid.Row="5"
+                                Grid.Column="1"
+                                Text="{Binding CriticalChance, StringFormat='Critical chance: {0}'}"
+                                FontSize="15" />
+
+
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+
+    </ListView>
+</ContentPage>

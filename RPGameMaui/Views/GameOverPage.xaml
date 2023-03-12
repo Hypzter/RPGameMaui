@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RPGameMaui.Views.GameOverPage"
+             Title="GameOverPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="2*" />
+            <RowDefinition />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+
+        <Label 
+                    Text="You lost..."                   
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Grid.Row="2"
+            FontSize="32"/>
+
+        <Button
+            Text="Play again!"
+            Grid.Row="4"
+            Grid.Column="3"
+            Clicked="OnPlayAgainButtonClicked" />
+
+        <Button
+            Text="Quit"
+            Grid.Row="4"
+            Grid.Column="1"
+            Clicked="OnQuitButtonClicked" />
+        
+    </Grid>
+</ContentPage>

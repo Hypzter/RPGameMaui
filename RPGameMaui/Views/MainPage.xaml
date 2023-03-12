@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RPGameMaui.MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="2*" />
+            <RowDefinition />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Label
+            Text="Welcome"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Scale="3"
+            Grid.ColumnSpan="2"/>
+
+        <Label
+            Text="Choose a class"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Scale="2"
+            Grid.ColumnSpan="2"
+            Grid.Row="2"/>
+
+        <ImageButton
+                Source="knightidle.png"
+                Scale=".50"
+                Clicked="OnKnightPicClicked"
+                Grid.Row="2"
+                Grid.RowSpan="4"/>
+
+        <ImageButton
+                Source="wizardidle.png"
+                Scale=".50"
+                Clicked="OnWizardPicClicked"
+                Grid.Row="2"
+                Grid.RowSpan="4"
+                Grid.Column="1"/>
+
+        <Button
+            Text="Check your local weather. If its nice, get some air."
+            Clicked="OnWeatherButtonClicked"
+            Grid.Column="0"
+            Grid.ColumnSpan="1"
+            Grid.Row="6"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"/>
+        
+
+    </Grid>
+
+
+</ContentPage>
