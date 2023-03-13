@@ -94,7 +94,7 @@
         <Label 
                     Grid.Row="5"
                     Grid.ColumnSpan="2"
-                    Text="Row 2, Columns 0 and 1"
+                    Text="The Wizard packs a great punch magical damage, but offers less health"
                     HorizontalOptions="Center"
                     VerticalOptions="Center" />
     </Grid>

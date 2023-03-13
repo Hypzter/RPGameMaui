@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using RPGameMaui.Models;
 using System;
 using System.Collections.Generic;
@@ -26,20 +27,44 @@ namespace RPGameMaui.ViewModels
         int humidity;
 
         Weather WeatherRightNow { get; set; } = new Weather();
-
+        //TODO: Fixa felhanteringen av väderdata
+        //Todo: Flytta ut väder från konstruktorn
         public WeatherPageViewModel()
         {
-            var weather = Task.Run(GetWeatherAsync);
-            
-            WeatherRightNow = weather.Result;
+            try
+            {
+                var weather = Task.Run(GetWeatherAsync);
+                weather.Wait();
+                WeatherRightNow = weather.Result;
 
-            Temp = WeatherRightNow.Temp;
-            Feels_Like = WeatherRightNow.Feels_Like;
-            Wind_Speed = WeatherRightNow.Wind_Speed;
-            Humidity = WeatherRightNow.Humidity;
+                Temp = WeatherRightNow.Temp;
+                Feels_Like = WeatherRightNow.Feels_Like;
+                Wind_Speed = WeatherRightNow.Wind_Speed;
+                Humidity = WeatherRightNow.Humidity;
+            }
+            catch (FeatureNotSupportedException fnsEx)
+            {
+                Application.Current.MainPage.DisplayAlert("Alert", "FeatureNotSupportedException", "OK");
+            }
+            catch (FeatureNotEnabledException fneEx)
+            {
+                Application.Current.MainPage.DisplayAlert("Alert", "FeatureNotEnabledException", "OK");
+            }
+            catch (PermissionException pEx)
+            {
+                Application.Current.MainPage.DisplayAlert("Alert", "PermissionException", "OK");
+            }
+            catch (NullReferenceException nEx)
+            {
+                Application.Current.MainPage.DisplayAlert("Alert", "NullReferenceException", "Ok");
+            }
+            catch (Exception ex)
+            {
+                Application.Current.MainPage.DisplayAlert("Alers", "Unable to get location", "Ok");
+            }
 
         }
-        public static async Task<Weather> GetWeatherAsync()
+        public async Task<Weather> GetWeatherAsync()
         {
             var client = new HttpClient();
 
@@ -60,45 +85,7 @@ namespace RPGameMaui.ViewModels
                     }
                 }
             }
-
             return weather;
         }
-        //public async Task GetCurrentLocation()
-        //{
-        //    try
-        //    {
-        //        _isCheckingLocation = true;
-
-        //        GeolocationRequest request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
-
-        //        _cancelTokenSource = new CancellationTokenSource();
-
-        //        LocationRightNow = await Geolocation.Default.GetLocationAsync(request, _cancelTokenSource.Token);
-
-
-
-        //        //if (location != null)
-        //        //Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
-        //    }
-        //    // Catch one of the following exceptions:
-        //    //   FeatureNotSupportedException
-        //    //   FeatureNotEnabledException
-        //    //   PermissionException
-        //    catch (Exception ex)
-        //    {
-        //        // Unable to get location
-        //    }
-        //    finally
-        //    {
-        //        _isCheckingLocation = false;
-        //    }
-
-        //}
-
-        //public void CancelRequest()
-        //{
-        //    if (_isCheckingLocation && _cancelTokenSource != null && _cancelTokenSource.IsCancellationRequested == false)
-        //        _cancelTokenSource.Cancel();
-        //}
     }
 }

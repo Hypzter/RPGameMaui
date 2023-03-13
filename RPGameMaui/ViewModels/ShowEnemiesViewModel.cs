@@ -23,29 +23,12 @@ namespace RPGameMaui.ViewModels
         public Models.Battle Battle;
         public ShowEnemiesViewModel()
         {
-            Monsters = new ObservableCollection<Models.Monster>();        
+            Monsters = new ObservableCollection<Models.Monster>();
 
             foreach (var m in Data.MonsterListSingleton.GetMonsters())
             {
                 Monsters.Add(m);
             }
         }
-        //public void GetMonsters()
-        //{
-        //    if (Monsters == null)
-        //    {
-        //        Monsters = new ObservableCollection<Models.Monster>();
-        //        for (int i = 0; i < 10; i++)
-        //        {
-        //            Monsters.Add(new Models.Monster());
-        //        }
-        //    }
-        //}
-        //public static void YouWonTheFight(Models.Monster m)
-        //{
-        //    var monster = (Monster)m;
-        //    Monsters.Remove(monster);
-        //}
-
     }
 }

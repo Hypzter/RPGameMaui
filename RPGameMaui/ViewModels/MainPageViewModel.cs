@@ -27,12 +27,8 @@ namespace RPGameMaui.ViewModels
                 _isCheckingLocation = true;
 
                 GeolocationRequest request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
-
                 _cancelTokenSource = new CancellationTokenSource();
-
                 Location location = await Geolocation.Default.GetLocationAsync(request, _cancelTokenSource.Token);
-
-
 
                 if (location != null)
                 {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RPGameMaui.Views.KnightPage"
-             Title="KnightPage">
+             x:Class="RPGameMaui.Views.LevelUpPage"
+             Title="LevelUpPage">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -21,25 +21,27 @@
                     Color="Green"
                     Grid.RowSpan="4"/>
         <Image 
-                    Source="knightidle.png"
+                    Source="{Binding LevelUp.ChosenHero.Image}"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     Grid.RowSpan="4"/>
         <BoxView 
                     Grid.Column="1"
                     Color="Blue" />
-        <Label 
+        <Button 
                     Grid.Column="1"
-                    Text="{Binding Knight.Level, StringFormat='Level: {0}'}"                   
+                    Text="{Binding LevelUp.ChosenHero.Health, StringFormat='HP: {0}, Adds 8 healthpoints'}"
+                    Clicked="OnAddHealthButtonClicked"
                     HorizontalOptions="Center"
                     VerticalOptions="Center" />
         <BoxView 
                     Grid.Column="1"
                     Color="Pink"
                     Grid.Row="1"/>
-        <Label 
+        <Button 
                     Grid.Column="1"
-                    Text="{Binding Knight.Health, StringFormat='Health: {0}'}"                   
+                    Text="{Binding LevelUp.ChosenHero.PhysicalAttack, StringFormat='Phy Att: {0}, Adds 3 physical damage'}"
+                    Clicked="OnAddPhyAttButtonClicked"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     Grid.Row="1"/>
@@ -47,10 +49,10 @@
                     Grid.Column="1"
                     Color="Yellow"
                     Grid.Row="2"/>
-        <Label 
+        <Button 
                     Grid.Column="1"
-                    Text="{Binding Knight.PhysicalAttack, StringFormat='Physical Attack: {0}'}"
-                    TextColor="Black"
+                    Text="{Binding LevelUp.ChosenHero.MagicalAttack, StringFormat='Mag Att: {0}, Adds 4 magical damage'}"
+                    Clicked="OnAddMagAttButtonClicked"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     Grid.Row="2"/>
@@ -58,35 +60,35 @@
                     Grid.Column="1"
                     Color="Orange"
                     Grid.Row="3"/>
-        <Label 
+        <Button 
                     Grid.Column="1"
-                    Text="{Binding Knight.MagicalAttack, StringFormat='Magical Attack: {0}'}"
-                    TextColor="Black"
+                    Text="{Binding LevelUp.ChosenHero.CritChance, StringFormat='Crit Chance: {0}%, Adds 2% crit chance'}"
+                    Clicked="OnAddCritChanceButtonClicked"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     Grid.Row="3"/>
         <BoxView 
                     Grid.Row="4"
                     Color="Teal" />
-        <Entry
+        <!--<Entry
                     x:Name="NameInput"
                     Placeholder="Enter your name here"
                     PlaceholderColor="White"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     Grid.Row="4"
-                    TextColor="White"/>
+                    TextColor="White"/>-->
         <BoxView 
                     Grid.Row="4"
                     Grid.Column="1"
                     Color="Purple" />
-        <Button 
+        <!--<Button 
                     Grid.Row="4"
                     Grid.Column="1"
                     Text="To Battle!"
                     Clicked="OnToBattleClicked"
                     HorizontalOptions="Center"
-                    VerticalOptions="Center" />
+                    VerticalOptions="Center" />-->
         <BoxView 
                     Grid.Row="5"
                     Grid.ColumnSpan="2"
@@ -94,7 +96,7 @@
         <Label 
                     Grid.Row="5"
                     Grid.ColumnSpan="2"
-                    Text="The Knight can take some beating, but will dish out less damage"
+                    Text="Choose a stat to increase and face another monster"
                     HorizontalOptions="Center"
                     VerticalOptions="Center" />
     </Grid>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPGameMaui.Models
 {
-    internal class ChosenHero
+    internal class ChosenHero : Interface.ICharacter
     {
         public string Name { get; set; }
         public int Level { get; set; }
@@ -22,13 +22,33 @@ namespace RPGameMaui.Models
         {
             return _chosenHero;
         }
-        public static void LevelUp(ChosenHero c)
+        //public static void LevelUp()
+        //{
+        //    _chosenHero.Level++;
+        //    _chosenHero.Health += (_chosenHero.Level + 2);
+        //    _chosenHero.PhysicalAttack += (2);
+        //    _chosenHero.MagicalAttack += (2);
+        //    _chosenHero.CritChance += (_chosenHero.Level * 1);
+        //}
+        public static void AddHealthPoints()
         {
-            c.Level++;
-            c.Health += (c.Level + 2);
-            c.PhysicalAttack += (2);
-            c.MagicalAttack += (2);
-            c.CritChance += (c.Level * 1);
+            _chosenHero.Level++;
+            _chosenHero.Health += 8;
+        }
+        public static void AddPhysicalAttackPoints()
+        {
+            _chosenHero.Level++;
+            _chosenHero.PhysicalAttack += 3;
+        }
+        public static void AddMagicalAttackPoints()
+        {
+            _chosenHero.Level++;
+            _chosenHero.MagicalAttack += 4;
+        }
+        public static void AddCritChancePoints()
+        {
+            _chosenHero.Level++;
+            _chosenHero.CritChance += 2;
         }
     }
 }

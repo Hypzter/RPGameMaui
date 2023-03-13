@@ -26,7 +26,8 @@ public partial class MainPage : ContentPage
     {
         await Navigation.PushAsync(new WeatherPage());
     }
-
+    //TODO: Lägg till info om gubbarna på startskärmen
+    //TODO: Ta bort gridfärger på gubbarnas infosida
     protected override void OnAppearing()
     {
         base.OnAppearing();

@@ -13,14 +13,24 @@
                 <RowDefinition />
                 <RowDefinition Height="2*" />
                 <RowDefinition />
-                <RowDefinition Height="100" />
+                <RowDefinition />
+                <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="100" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <Image 
+        <!--<Button
+            Command="{Binding FightHeroCommand}"
+            Text="Switch hero"
+            Clicked="OnSwitchButtonClicked" 
+            Grid.Row="0"
+            Grid.Column="1"/>-->
+
+        <Image 
             Source="{Binding Fight.Monster.Image}"
             HorizontalOptions="Center"
             VerticalOptions="Center"
@@ -28,16 +38,22 @@
             Grid.RowSpan="3"
             Grid.Column="1"/>
 
-            <Label
+        <Label
             Text="{Binding MonsterHealth, StringFormat='Health: {0}'}"          
             Grid.Column="1"
             Grid.Row="4"
             HorizontalOptions="Center" />
 
         <Label
-            Text="{Binding MonsterHealth, StringFormat='Health: {0}'}"          
+            Text="{Binding MonsterPhysAtt, StringFormat='Physical Att: {0}'}"          
             Grid.Column="1"
-            Grid.Row="4"
+            Grid.Row="5"
+            HorizontalOptions="Center" />
+
+        <Label
+            Text="{Binding MonsterCritChance, StringFormat='Crit Chance: {0}'}"          
+            Grid.Column="1"
+            Grid.Row="6"
             HorizontalOptions="Center" />
 
         <Image
@@ -48,22 +64,36 @@
             Grid.RowSpan="3"
             Grid.Column="0"/>
 
-            <Label
+        <Label
             Text="{Binding HeroHealth, StringFormat='Health: {0}'}"          
             Grid.Column="0"
             Grid.Row="4"
             HorizontalOptions="Center" />
 
-            <Button
+        <Label
+            Text="{Binding HeroPhysAtt, StringFormat='Physical Att: {0}'}"          
+            Grid.Column="0"
+            Grid.Row="5"
+            HorizontalOptions="Center" />
+
+        <Label
+            Text="{Binding HeroMagAtt, StringFormat='Magical Att: {0}'}"          
+            Grid.Column="0"
+            Grid.Row="6"
+            HorizontalOptions="Center" />
+
+        <Button
             Command="{Binding PhysicalAttackCommand}"            
             Text="Physical attack"
-            Grid.Row="5"
+            Grid.Row="7"
+            Scale="0.80"
             Clicked="OnPhyAttButtonClicked"/>
 
         <Button
             Command="{Binding MagicalAttackCommand}"            
             Text="Magical attack"
-            Grid.Row="6"
+            Grid.Row="8"
+            Scale="0.80"
             Clicked="OnMagAttButtonClicked"/>
 
     </Grid>

@@ -18,8 +18,8 @@ public partial class BattlePage : ContentPage
 		{
 			await DisplayAlert("Winner!", "You leveled up", "Ok");
 			BattlePageViewModel.YouWonTheFight(bpvm.Fight.Monster);
-			Models.ChosenHero.LevelUp(Models.ChosenHero.GetChosenHero());
-			await Navigation.PushAsync(new ShowEnemies());
+			//Models.ChosenHero.LevelUp();
+			await Navigation.PushAsync(new LevelUpPage());
 		}
 		if (bpvm.HeroHealth <= 0)
 		{
@@ -27,14 +27,15 @@ public partial class BattlePage : ContentPage
 			await Navigation.PushAsync(new GameOverPage());
 		}
     }
+    //TODO: Få till text för crit?
     private async void OnMagAttButtonClicked(object sender, EventArgs e)
     {
         if (bpvm.MonsterHealth <= 0)
         {
             await DisplayAlert("Winner!", "You leveled up", "Ok");
             BattlePageViewModel.YouWonTheFight(bpvm.Fight.Monster);
-            Models.ChosenHero.LevelUp(Models.ChosenHero.GetChosenHero());
-            await Navigation.PushAsync(new ShowEnemies());
+            //Models.ChosenHero.LevelUp();
+            await Navigation.PushAsync(new LevelUpPage());
         }
         if (bpvm.HeroHealth <= 0)
         {
@@ -42,6 +43,4 @@ public partial class BattlePage : ContentPage
             await Navigation.PushAsync(new GameOverPage());
         }
     }
-
-
 }

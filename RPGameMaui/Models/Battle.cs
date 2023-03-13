@@ -11,7 +11,5 @@ namespace RPGameMaui.Models
     {
         public Models.Monster Monster { get; set; }
         public Models.ChosenHero ChosenHero { get; set; }
-
-
     }
 }
