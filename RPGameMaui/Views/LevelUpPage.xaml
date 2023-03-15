@@ -9,93 +9,66 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition Height="2*" />
             <RowDefinition />
-            <RowDefinition Height="100" />
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <BoxView
-                    Color="Green"
-                    Grid.RowSpan="4"/>
+
         <Image 
                     Source="{Binding LevelUp.ChosenHero.Image}"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
+                    Grid.Row="1"
                     Grid.RowSpan="4"/>
-        <BoxView 
-                    Grid.Column="1"
-                    Color="Blue" />
+
         <Button 
                     Grid.Column="1"
-                    Text="{Binding LevelUp.ChosenHero.Health, StringFormat='HP: {0}, Adds 8 healthpoints'}"
+                    Text="{Binding LevelUp.ChosenHero.Health, StringFormat='HP: {0} --> Add 8 healthpoints'}"
                     Clicked="OnAddHealthButtonClicked"
+                    Grid.Row="1"
+                    BackgroundColor="Red"
                     HorizontalOptions="Center"
                     VerticalOptions="Center" />
-        <BoxView 
-                    Grid.Column="1"
-                    Color="Pink"
-                    Grid.Row="1"/>
+
         <Button 
                     Grid.Column="1"
-                    Text="{Binding LevelUp.ChosenHero.PhysicalAttack, StringFormat='Phy Att: {0}, Adds 3 physical damage'}"
+                    Text="{Binding LevelUp.ChosenHero.PhysicalAttack, StringFormat='Phy Att: {0} --> Add 3 physical damage'}"
                     Clicked="OnAddPhyAttButtonClicked"
+                    BackgroundColor="Gray"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
-                    Grid.Row="1"/>
-        <BoxView 
-                    Grid.Column="1"
-                    Color="Yellow"
                     Grid.Row="2"/>
+
         <Button 
                     Grid.Column="1"
-                    Text="{Binding LevelUp.ChosenHero.MagicalAttack, StringFormat='Mag Att: {0}, Adds 4 magical damage'}"
+                    Text="{Binding LevelUp.ChosenHero.MagicalAttack, StringFormat='Mag Att: {0} --> Add 4 magical damage'}"
                     Clicked="OnAddMagAttButtonClicked"
+                    BackgroundColor="BlueViolet"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
-                    Grid.Row="2"/>
-        <BoxView 
-                    Grid.Column="1"
-                    Color="Orange"
                     Grid.Row="3"/>
+
         <Button 
                     Grid.Column="1"
-                    Text="{Binding LevelUp.ChosenHero.CritChance, StringFormat='Crit Chance: {0}%, Adds 2% crit chance'}"
+                    Text="{Binding LevelUp.ChosenHero.CritChance, StringFormat='Crit Chance: {0}% --> Add 2% crit chance'}"
                     Clicked="OnAddCritChanceButtonClicked"
+                    BackgroundColor="MediumSeaGreen"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
-                    Grid.Row="3"/>
+                    Grid.Row="4"/>
+
         <BoxView 
-                    Grid.Row="4"
-                    Color="Teal" />
-        <!--<Entry
-                    x:Name="NameInput"
-                    Placeholder="Enter your name here"
-                    PlaceholderColor="White"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    Grid.Row="4"
-                    TextColor="White"/>-->
-        <BoxView 
-                    Grid.Row="4"
-                    Grid.Column="1"
-                    Color="Purple" />
-        <!--<Button 
-                    Grid.Row="4"
-                    Grid.Column="1"
-                    Text="To Battle!"
-                    Clicked="OnToBattleClicked"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center" />-->
-        <BoxView 
-                    Grid.Row="5"
+                    Grid.Row="6"
                     Grid.ColumnSpan="2"
-                    Color="Red" />
+                    Color="LightGray" />
         <Label 
-                    Grid.Row="5"
+                    Grid.Row="6"
                     Grid.ColumnSpan="2"
+                    Scale="1.5"
                     Text="Choose a stat to increase and face another monster"
                     HorizontalOptions="Center"
                     VerticalOptions="Center" />

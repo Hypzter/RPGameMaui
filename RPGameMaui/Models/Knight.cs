@@ -16,21 +16,14 @@ namespace RPGameMaui.Models
         public int CritChance { get; set; }
         public string Image { get; set; }
 
-        //private static readonly Knight _knight = new Knight();
-        //TODO: Styra upp defense och skapa mer matte bakom fighterna?
         public Knight()
         {
             Level = 1;
             Health = 100;
-            PhysicalAttack = 10;
+            PhysicalAttack = 11;
             MagicalAttack = 2;
             CritChance = 3;
             Image = "knightidle.png";
         }
-        //public static Knight ChosenKnight()
-        //{
-        //    return _knight;
-        //}
-
     }
 }

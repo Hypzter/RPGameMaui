@@ -11,23 +11,16 @@ namespace RPGameMaui.Models
         public string Name { get; set; }
         public int Level { get; set; }
         public int Health { get; set; }
-        public int PhysicalAttack { get; set; }
-        //public int MagicalAttack { get; set; }
-        public int PhysicalDefense { get; set; }
-        public int MagicalDefense { get; set; }
+        public int Attack { get; set; }
         public int CritChance { get; set; }
         public string Image { get; set; }
-        //TODO: Bryt ut alla monster till egna objekt?
         public Monster()
         {
             Random rnd = new Random();
             Name = GetRandomMonsterName();
             Level = rnd.Next(1, 11);
-            Health = 50 + (Level * 3);
-            PhysicalAttack = 10 + (Level * 2);
-            PhysicalDefense = 10 + (Level * 1);
-            MagicalDefense = 10 + (Level * 1);
-            //MagicalAttack = 10 + (Level * 2);
+            Health = 50 + (Level * 4);
+            Attack = 10 + (Level * 3);
             CritChance = 2 + (Level * 1);
             Image = GetImage(Name);
         }

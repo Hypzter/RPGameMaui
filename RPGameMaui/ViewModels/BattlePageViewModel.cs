@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Maui.Controls.Xaml;
+using RPGameMaui.Models;
+using RPGameMaui.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,7 +21,7 @@ namespace RPGameMaui.ViewModels
         int monsterHealth;
 
         [ObservableProperty]
-        int monsterPhysAtt;
+        int monsterAtt;
 
         [ObservableProperty]
         int monsterCritChance;
@@ -33,67 +35,97 @@ namespace RPGameMaui.ViewModels
         [ObservableProperty]
         int heroMagAtt;
 
+        [ObservableProperty]
+        int heroCritChance;
+
+        [ObservableProperty]
+        string monsterActionText;
+
+        [ObservableProperty]
+        string monsterActionTextForCrit;
+
+        [ObservableProperty]
+        string heroActionTextForCrit;
+
+        [ObservableProperty]
+        string heroActionText;
+
+        [ObservableProperty]
+        int heroDamage;
+
+        [ObservableProperty]
+        int monsterDamage;
         public BattlePageViewModel()
         {
             Fight = new();
             Fight.ChosenHero = Models.ChosenHero.GetChosenHero();
             Fight.Monster = ViewModels.ShowEnemiesViewModel.CurrentMonster;
             MonsterHealth = Fight.Monster.Health;
-            MonsterPhysAtt = Fight.Monster.PhysicalAttack;
+            MonsterAtt = Fight.Monster.Attack;
             monsterCritChance = Fight.Monster.CritChance;
             HeroHealth = Fight.ChosenHero.Health;
             HeroPhysAtt = Fight.ChosenHero.PhysicalAttack;
             HeroMagAtt = Fight.ChosenHero.MagicalAttack;
-
+            HeroCritChance = Fight.ChosenHero.CritChance;
         }
-
-        //[RelayCommand]
-        //public async void FightHero()
-        //{
-        //    await Task.Delay(500);
-        //    if (Fight.ChosenHero.Image == "knightidle.png")
-        //    {
-        //        //Fight.ChosenHero = Models.Wizard.ChosenWizard();
-        //        Fight.ChosenHero.Level = Models.Wizard.ChosenWizard().Level;
-        //        Fight.ChosenHero.Health = Models.Wizard.ChosenWizard().Health;
-        //        Fight.ChosenHero.PhysicalAttack = Models.Wizard.ChosenWizard().PhysicalAttack;
-        //        Fight.ChosenHero.MagicalAttack = Models.Wizard.ChosenWizard().MagicalAttack;
-        //        Fight.ChosenHero.CritChance = Models.Wizard.ChosenWizard().CritChance;
-        //        Fight.ChosenHero.Image = Models.Wizard.ChosenWizard().Image;
-        //    }
-        //    if (Fight.ChosenHero.Image == "wizardidle.png")
-        //    {
-        //        //Fight.ChosenHero = Models.Knight.ChosenKnight();
-        //        Fight.ChosenHero.Level = Models.Knight.ChosenKnight().Level;
-        //        Fight.ChosenHero.Health = Models.Knight.ChosenKnight().Health;
-        //        Fight.ChosenHero.PhysicalAttack = Models.Knight.ChosenKnight().PhysicalAttack;
-        //        Fight.ChosenHero.MagicalAttack = Models.Knight.ChosenKnight().MagicalAttack;
-        //        Fight.ChosenHero.CritChance = Models.Knight.ChosenKnight().CritChance;
-        //        Fight.ChosenHero.Image = Models.Knight.ChosenKnight().Image;
-        //    }
-        //}
 
         [RelayCommand]
         public async void PhysicalAttack()
         {
-            await Task.Delay(500);
-            MonsterHealth -= Data.Logic.CheckIfCrit(Fight.ChosenHero.PhysicalAttack, Fight.ChosenHero.CritChance);
+            HeroDamage = Data.Logic.CheckIfCrit(Fight.ChosenHero.PhysicalAttack, Fight.ChosenHero.CritChance);
+            MonsterHealth -= HeroDamage;
+            if (Data.Logic.IsCrit == false)
+            {
+                HeroActionText = Fight.ChosenHero.Name + " hits " + Fight.Monster.Name + " for " + HeroDamage + " physical damage!";
+                await Task.Delay(1000);
+                HeroActionText = "";
+            }
+            else
+            {
+                HeroActionTextForCrit = Fight.ChosenHero.Name + " crits " + Fight.Monster.Name + " for " + HeroDamage + " physical damage!";
+                await Task.Delay(1000);
+                HeroActionTextForCrit = "";
+            }
             CounterAttack();
 
         }
         [RelayCommand]
         public async void MagicalAttack()
         {
-            await Task.Delay(500);
-            MonsterHealth -= Data.Logic.CheckIfCrit(Fight.ChosenHero.MagicalAttack, Fight.ChosenHero.CritChance);
+            HeroDamage = Data.Logic.CheckIfCrit(Fight.ChosenHero.MagicalAttack, Fight.ChosenHero.CritChance);
+            MonsterHealth -= HeroDamage;
+            if (Data.Logic.IsCrit == false)
+            {
+                HeroActionText = Fight.ChosenHero.Name + " hits " + Fight.Monster.Name + " for " + HeroDamage + " magical damage!";
+                await Task.Delay(1000);
+                HeroActionText = "";
+            }
+            else
+            {
+                HeroActionTextForCrit = Fight.ChosenHero.Name + " crits " + Fight.Monster.Name + " for " + HeroDamage + " magical damage!";
+                await Task.Delay(1000);
+                HeroActionTextForCrit = "";
+            }
             CounterAttack();
         }
         public async void CounterAttack()
         {
-            if (MonsterHealth >= 0)
+            if (MonsterHealth > 0)
             {
-                await Task.Delay(1000);
-                HeroHealth -= Data.Logic.CheckIfCrit(Fight.Monster.PhysicalAttack, Fight.Monster.CritChance);
+                MonsterDamage = Data.Logic.CheckIfCrit(Fight.Monster.Attack, Fight.Monster.CritChance);
+                HeroHealth -= MonsterDamage;
+                if (Data.Logic.IsCrit == false)
+                {
+                    MonsterActionText = Fight.Monster.Name + " hits " + Fight.ChosenHero.Name + " for " + MonsterDamage + " damage!";
+                    await Task.Delay(1000);
+                    MonsterActionText = "";
+                }
+                else
+                {
+                    MonsterActionTextForCrit = Fight.Monster.Name + " crits " + Fight.ChosenHero.Name + " for " + MonsterDamage + " damage!";
+                    await Task.Delay(1000);
+                    MonsterActionTextForCrit = "";
+                }
             }
         }
         public static void YouWonTheFight(Models.Monster m)

@@ -16,7 +16,6 @@ namespace RPGameMaui.Models
         public int CritChance { get; set; }
         public string Image { get; set; }
 
-        //private static readonly Wizard _wizard = new Wizard();
         public Wizard()
         {
             Level = 1;
@@ -26,9 +25,5 @@ namespace RPGameMaui.Models
             CritChance = 5;
             Image = "wizardidle.png";
         }
-        //public static Wizard ChosenWizard()
-        //{
-        //    return _wizard;
-        //}
     }
 }

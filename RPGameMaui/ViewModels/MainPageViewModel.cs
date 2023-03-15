@@ -12,7 +12,6 @@ namespace RPGameMaui.ViewModels
         public static double latitude;
         public MainPageViewModel()
         {
-            //Task t = GetCurrentLocation();
             for (int i = 0; i < 10; i++)
             {
                 Data.MonsterListSingleton.GetMonsters().Add(new Models.Monster());
@@ -39,19 +38,19 @@ namespace RPGameMaui.ViewModels
             }
             catch (FeatureNotSupportedException fnsEx)
             {
-                await Application.Current.MainPage.DisplayAlert("Alert", "FeatureNotSupportedException", "OK");
+                await Shell.Current.DisplayAlert("Alert", "FeatureNotSupportedException", "OK");
             }
             catch (FeatureNotEnabledException fneEx)
             {
-                await Application.Current.MainPage.DisplayAlert("Alert", "FeatureNotEnabledException", "OK");
+                await Shell.Current.DisplayAlert("Alert", "FeatureNotEnabledException", "OK");
             }
             catch (PermissionException pEx)
             {
-                await Application.Current.MainPage.DisplayAlert("Alert", "PermissionException", "OK");
+                await Shell.Current.DisplayAlert("Alert", "PermissionException", "OK");
             }
             catch (Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert("Alers", "Unable to get locatin", "Ok");
+                await Shell.Current.DisplayAlert("Alers", "Unable to get locatin", "Ok");
             }
             finally
             {

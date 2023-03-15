@@ -27,8 +27,7 @@ namespace RPGameMaui.ViewModels
         int humidity;
 
         Weather WeatherRightNow { get; set; } = new Weather();
-        //TODO: Fixa felhanteringen av väderdata
-        //Todo: Flytta ut väder från konstruktorn
+
         public WeatherPageViewModel()
         {
             try
@@ -37,10 +36,13 @@ namespace RPGameMaui.ViewModels
                 weather.Wait();
                 WeatherRightNow = weather.Result;
 
-                Temp = WeatherRightNow.Temp;
-                Feels_Like = WeatherRightNow.Feels_Like;
-                Wind_Speed = WeatherRightNow.Wind_Speed;
-                Humidity = WeatherRightNow.Humidity;
+                if (weather.Result != null)
+                {
+                    Temp = WeatherRightNow.Temp;
+                    Feels_Like = WeatherRightNow.Feels_Like;
+                    Wind_Speed = WeatherRightNow.Wind_Speed;
+                    Humidity = WeatherRightNow.Humidity;
+                }
             }
             catch (FeatureNotSupportedException fnsEx)
             {

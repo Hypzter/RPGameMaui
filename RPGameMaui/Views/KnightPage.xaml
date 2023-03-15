@@ -9,16 +9,16 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition Height="2*" />
             <RowDefinition />
-            <RowDefinition Height="100" />
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <BoxView
-                    Color="Green"
+                    Color="White"
                     Grid.RowSpan="4"/>
         <Image 
                     Source="knightidle.png"
@@ -27,7 +27,7 @@
                     Grid.RowSpan="4"/>
         <BoxView 
                     Grid.Column="1"
-                    Color="Blue" />
+                    Color="White" />
         <Label 
                     Grid.Column="1"
                     Text="{Binding Knight.Level, StringFormat='Level: {0}'}"                   
@@ -35,7 +35,7 @@
                     VerticalOptions="Center" />
         <BoxView 
                     Grid.Column="1"
-                    Color="Pink"
+                    Color="White"
                     Grid.Row="1"/>
         <Label 
                     Grid.Column="1"
@@ -45,7 +45,7 @@
                     Grid.Row="1"/>
         <BoxView 
                     Grid.Column="1"
-                    Color="Yellow"
+                    Color="White"
                     Grid.Row="2"/>
         <Label 
                     Grid.Column="1"
@@ -56,7 +56,7 @@
                     Grid.Row="2"/>
         <BoxView 
                     Grid.Column="1"
-                    Color="Orange"
+                    Color="White"
                     Grid.Row="3"/>
         <Label 
                     Grid.Column="1"
@@ -67,34 +67,43 @@
                     Grid.Row="3"/>
         <BoxView 
                     Grid.Row="4"
-                    Color="Teal" />
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Color="White" />
         <Entry
                     x:Name="NameInput"
                     Placeholder="Enter your name here"
-                    PlaceholderColor="White"
+                    PlaceholderColor="Black"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     Grid.Row="4"
-                    TextColor="White"/>
+                    Grid.ColumnSpan="2"
+                    TextColor="Black"
+                    BackgroundColor="LightGray"/>
         <BoxView 
-                    Grid.Row="4"
-                    Grid.Column="1"
-                    Color="Purple" />
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Color="White" />
         <Button 
-                    Grid.Row="4"
-                    Grid.Column="1"
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="Green"
                     Text="To Battle!"
+                    Scale="1.2"
                     Clicked="OnToBattleClicked"
                     HorizontalOptions="Center"
                     VerticalOptions="Center" />
         <BoxView 
-                    Grid.Row="5"
+                    Grid.Row="6"
                     Grid.ColumnSpan="2"
-                    Color="Red" />
+                    Color="LightGray" />
         <Label 
-                    Grid.Row="5"
+                    Grid.Row="6"
                     Grid.ColumnSpan="2"
                     Text="The Knight can take some beating, but will dish out less damage"
+                    Scale="1"
                     HorizontalOptions="Center"
                     VerticalOptions="Center" />
     </Grid>

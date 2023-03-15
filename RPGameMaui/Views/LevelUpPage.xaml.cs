@@ -10,25 +10,25 @@ public partial class LevelUpPage : ContentPage
 		BindingContext = new LevelUpPageViewModel();
 	}
 
-    private async void OnAddHealthButtonClicked(object sender, EventArgs e)
+    private void OnAddHealthButtonClicked(object sender, EventArgs e)
     {
 		Models.ChosenHero.AddHealthPoints();
         IsAllMonstersDefeated();
     }
 
-    private async void OnAddPhyAttButtonClicked(object sender, EventArgs e)
+    private void OnAddPhyAttButtonClicked(object sender, EventArgs e)
     {
 		Models.ChosenHero.AddPhysicalAttackPoints();
         IsAllMonstersDefeated();
     }
 
-    private async void OnAddMagAttButtonClicked(object sender, EventArgs e)
+    private void OnAddMagAttButtonClicked(object sender, EventArgs e)
     {
         Models.ChosenHero.AddMagicalAttackPoints();
         IsAllMonstersDefeated();
     }
 
-    private async void OnAddCritChanceButtonClicked(object sender, EventArgs e)
+    private void OnAddCritChanceButtonClicked(object sender, EventArgs e)
     {
         Models.ChosenHero.AddCritChancePoints();
         IsAllMonstersDefeated();

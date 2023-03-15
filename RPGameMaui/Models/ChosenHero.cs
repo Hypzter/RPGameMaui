@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RPGameMaui.Models
 {
-    internal class ChosenHero : Interface.ICharacter
+    // Användaren får välja mellan Knight eller Wizard, och den klassen sätts som ChosenHero-singleton som hanteras genom hela programmet. 
+    internal class ChosenHero
     {
         public string Name { get; set; }
         public int Level { get; set; }
@@ -14,6 +15,7 @@ namespace RPGameMaui.Models
         public int PhysicalAttack { get; set; }
         public int MagicalAttack { get; set; }
         public int CritChance { get; set; }
+        public bool IsCrit { get; set; } = false;
         public string Image { get; set; }
 
         private static readonly ChosenHero _chosenHero = new ChosenHero();
@@ -22,14 +24,6 @@ namespace RPGameMaui.Models
         {
             return _chosenHero;
         }
-        //public static void LevelUp()
-        //{
-        //    _chosenHero.Level++;
-        //    _chosenHero.Health += (_chosenHero.Level + 2);
-        //    _chosenHero.PhysicalAttack += (2);
-        //    _chosenHero.MagicalAttack += (2);
-        //    _chosenHero.CritChance += (_chosenHero.Level * 1);
-        //}
         public static void AddHealthPoints()
         {
             _chosenHero.Level++;

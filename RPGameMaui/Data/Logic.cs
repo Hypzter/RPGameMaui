@@ -9,12 +9,15 @@ namespace RPGameMaui.Data
 {
     internal class Logic
     {
+        public static bool IsCrit { get; set; }
         public static int CheckIfCrit(int damage, int critChance)
         {
+            IsCrit = false;
             Random rnd = new Random();
             var chance = rnd.Next(1, 100);
             if (chance <= critChance)
             {
+                IsCrit = true;
                 return damage * 2;
             }
             else

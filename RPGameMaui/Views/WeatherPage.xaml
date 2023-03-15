@@ -11,9 +11,9 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition Height="2*" />
             <RowDefinition />
-            <RowDefinition Height="100" />
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -25,6 +25,7 @@
             HorizontalOptions="Center"
             VerticalOptions="Center"
             Grid.Row="1"
+            Scale="2"
             Grid.ColumnSpan="2" />
 
         <Label
