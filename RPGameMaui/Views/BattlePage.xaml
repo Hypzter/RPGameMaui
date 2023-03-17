@@ -24,13 +24,6 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-        <!--<Button
-            Command="{Binding FightHeroCommand}"
-            Text="Switch hero"
-            Clicked="OnSwitchButtonClicked" 
-            Grid.Row="0"
-            Grid.Column="1"/>-->
-
         <Image 
             Source="{Binding Fight.Monster.Image}"
             HorizontalOptions="Center"

@@ -12,12 +12,4 @@ public partial class WeatherPage : ContentPage
 		InitializeComponent();
 		BindingContext = weatherPageViewModel;
 	}
- //   protected override void OnAppearing()
-	//{
-	//	base.OnAppearing();
-	//	if (!pageStarted)
-	//	{
-	//		var task = (BindingContext as WeatherPageViewModel).GetWeatherAsync();
-	//	}
-	//}
 }

@@ -55,6 +55,8 @@ namespace RPGameMaui.ViewModels
 
         [ObservableProperty]
         int monsterDamage;
+
+        public static bool checkIfHealthReachedZero = false;
         public BattlePageViewModel()
         {
             Fight = new();
@@ -105,7 +107,7 @@ namespace RPGameMaui.ViewModels
                 HeroActionTextForCrit = Fight.ChosenHero.Name + " crits " + Fight.Monster.Name + " for " + HeroDamage + " magical damage!";
                 await Task.Delay(1000);
                 HeroActionTextForCrit = "";
-            }
+            }           
             CounterAttack();
         }
         public async void CounterAttack()

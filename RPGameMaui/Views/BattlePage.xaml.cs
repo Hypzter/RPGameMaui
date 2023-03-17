@@ -1,5 +1,6 @@
 
 using RPGameMaui.ViewModels;
+using System.Runtime.CompilerServices;
 
 namespace RPGameMaui.Views;
 
@@ -11,7 +12,9 @@ public partial class BattlePage : ContentPage
         InitializeComponent();
         BindingContext = bpvm;
     }
-
+    // Här har jag ett problem. Jag vill ju pusha till olika sidor beroende på vem som vinner mellan ChosenHero och Monster, alltså då någon av deras Health blir 0.
+    // Blir lite knas då den beräkningen sker via en asynkron Command i viewmodel. Min CounterAttack metod har fördröjning i sig för att jag vill ha det turn-based,
+    // så bvpm.HeroHealth hinner aldrig komma under noll förens efter den körs i metoden under här.
     private async void OnPhyAttButtonClicked(object sender, EventArgs e)
     {
         if (bpvm.MonsterHealth < 1)

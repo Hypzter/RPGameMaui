@@ -62,7 +62,7 @@ namespace RPGameMaui.ViewModels
             }
             catch (Exception ex)
             {
-                Application.Current.MainPage.DisplayAlert("Alers", "Unable to get location", "Ok");
+                Application.Current.MainPage.DisplayAlert("Alert", "Unable to get location", "Ok");
             }
 
         }

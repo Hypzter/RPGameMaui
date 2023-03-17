@@ -16,8 +16,6 @@ public partial class ShowEnemies : ContentPage
     {
         var monster = ((ListView)sender).SelectedItem as Models.Monster;
         GetCurrentMonster(monster);
-        //var chosenHero = Models.ChosenHero.GetChosenHero();
-        //sevm.Battle.Monster = monster;
 
         if (monster != null)
         {
